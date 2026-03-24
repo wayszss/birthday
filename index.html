@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Rohayu 💜</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+  background: radial-gradient(circle at bottom, #0d1b2a, #000);
+}
+
+/* Stars */
+.stars, .stars2, .stars3 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+.stars {
+  background-image: radial-gradient(2px 2px white, transparent);
+  animation: moveStars 50s linear infinite;
+}
+.stars2 {
+  background-image: radial-gradient(1.5px 1.5px #aaa, transparent);
+  animation: moveStars 100s linear infinite;
+}
+.stars3 {
+  background-image: radial-gradient(1px 1px #555, transparent);
+  animation: moveStars 150s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+/* Shooting star */
+.shooting-star {
+  position: fixed;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(-45deg, white, transparent);
+  top: 0;
+  left: 50%;
+  animation: shoot 3s linear infinite;
+}
+
+@keyframes shoot {
+  0% { transform: translate(0,0) rotate(45deg); opacity:1; }
+  100% { transform: translate(-600px,600px) rotate(45deg); opacity:0; }
+}
+
+h1 {
+  margin-top: 60px;
+  text-shadow: 0 0 20px white;
+}
+
+h2 {
+  color: #ff9de2;
+}
+
+p {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Slider */
+.slider {
+  max-width: 300px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+.slides {
+  display: flex;
+  transition: 0.5s;
+}
+
+.slides img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Button */
+button {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.play-btn {
+  margin-top: 15px;
+  background: #ff9de2;
+  color: black;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+<div class="shooting-star"></div>
+
+<h1>Happy Birthday MyGirl, MyHavenn 🎉</h1>
+<h2>Rohayu Nengseh 💜</h2>
+
+<p>
+Di semesta luas ini, aku menemukan kamu sebagai rumah.  
+Seperti bintang yang selalu bersinar di gelapnya malam,  
+kamu selalu hadir memberi tenang dan bahagia.  
+Aku akan selalu memilih kamu, hari ini dan seterusnya. ✨
+</p>
+
+<!-- Slider -->
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+  </div>
+</div>
+
+<div>
+  <button onclick="prevSlide()">⟨</button>
+  <button onclick="nextSlide()">⟩</button>
+</div>
+
+<!-- Musik -->
+<button class="play-btn" onclick="playMusic()">Putar Musik 🎶</button>
+
+<audio id="music" loop>
+  <source src="perfect.mp3" type="audio/mpeg">
+</audio>
+
+<footer style="margin:30px; opacity:0.7;">
+Dari seseorang yang mencintaimu di setiap semesta 🌌
+</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById('slides');
+const totalSlides = 3;
+
+function showSlide() {
+  slides.style.transform = `translateX(${-index * 300}px)`;
+}
+
+function nextSlide() {
+  index = (index + 1) % totalSlides;
+  showSlide();
+}
+
+function prevSlide() {
+  index = (index - 1 + totalSlides) % totalSlides;
+  showSlide();
+}
+
+/* Music */
+function playMusic() {
+  const music = document.getElementById("music");
+  music.play();
+}
+</script>
+
+</body>
+</html>
